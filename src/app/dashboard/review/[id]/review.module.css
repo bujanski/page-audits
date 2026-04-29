@@ -1,0 +1,158 @@
+.container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+}
+
+.screenshot {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.noScreenshot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.5rem;
+  color: #555;
+}
+
+.noScreenshot p {
+  margin: 0;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.urlBar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.back {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.back:hover {
+  color: #fff;
+}
+
+.url {
+  font-size: 0.8rem;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.url:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.pendingCount {
+  font-size: 0.75rem;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.refreshBtn {
+  padding: 0.4rem 0.7rem;
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #aaa;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.refreshBtn:hover {
+  border-color: #888;
+  color: #fff;
+}
+
+.undoBtn {
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #aaa;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.undoBtn:hover {
+  border-color: #aaa;
+  color: #fff;
+}
+
+.btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.btn.active {
+  opacity: 1;
+  border-color: #fff;
+}
+
+.keep {
+  background: #065f46;
+  color: #d1fae5;
+}
+
+.update {
+  background: #92400e;
+  color: #fef3c7;
+}
+
+.delete {
+  background: #991b1b;
+  color: #fee2e2;
+}

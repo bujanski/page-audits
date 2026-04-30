@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { logout } from '@/app/auth/actions'
 import { addPage, deletePage } from '@/app/pages/actions'
+import CsvImport from './CsvImport'
 import styles from './dashboard.module.css'
 
 const DECISION_LABELS: Record<string, string> = {
@@ -41,7 +42,57 @@ export default async function DashboardPage() {
       </header>
 
       <main className={styles.main}>
-        <section className={styles.addSection}>
+        <div className={styles.tableColumn}>
+          {pages && pages.length > 0 ? (
+            <>
+              <p className={styles.summary}>
+                {pages.length} page{pages.length !== 1 ? 's' : ''} &mdash; {undecided.length} awaiting review
+              </p>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th>URL</th>
+                    <th>Decision</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pages.map(page => (
+                    <tr key={page.id}>
+                      <td className={styles.urlCell}>
+                        <a href={page.url} target="_blank" rel="noopener noreferrer">
+                          {page.url}
+                        </a>
+                      </td>
+                      <td>
+                        {page.decision ? (
+                          <span className={`${styles.badge} ${styles[page.decision]}`}>
+                            {DECISION_LABELS[page.decision]}
+                          </span>
+                        ) : (
+                          <span className={styles.pending}>Pending</span>
+                        )}
+                      </td>
+                      <td className={styles.actions}>
+                        <Link href={`/dashboard/review/${page.id}`} className={styles.reviewLink}>
+                          Review
+                        </Link>
+                        <form action={deletePage.bind(null, page.id)}>
+                          <button type="submit" className={styles.removeButton}>Remove</button>
+                        </form>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          ) : (
+            <p className={styles.empty}>No pages yet. Add a URL using the form.</p>
+          )}
+        </div>
+
+        <aside className={styles.sidebar}>
+          <h2 className={styles.sidebarTitle}>Add URLs</h2>
           <form action={addPage} className={styles.addForm}>
             <input
               name="url"
@@ -50,56 +101,12 @@ export default async function DashboardPage() {
               placeholder="https://example.com/page"
               className={styles.urlInput}
             />
-            <button type="submit" className={styles.addButton}>Add URL</button>
+            <button type="submit" className={styles.addButton}>Add</button>
           </form>
-        </section>
-
-        {pages && pages.length > 0 ? (
-          <>
-            <p className={styles.summary}>
-              {pages.length} page{pages.length !== 1 ? 's' : ''} &mdash; {undecided.length} awaiting review
-            </p>
-            <table className={styles.table}>
-              <thead>
-                <tr>
-                  <th>URL</th>
-                  <th>Decision</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {pages.map(page => (
-                  <tr key={page.id}>
-                    <td className={styles.urlCell}>
-                      <a href={page.url} target="_blank" rel="noopener noreferrer">
-                        {page.url}
-                      </a>
-                    </td>
-                    <td>
-                      {page.decision ? (
-                        <span className={`${styles.badge} ${styles[page.decision]}`}>
-                          {DECISION_LABELS[page.decision]}
-                        </span>
-                      ) : (
-                        <span className={styles.pending}>Pending</span>
-                      )}
-                    </td>
-                    <td className={styles.actions}>
-                      <Link href={`/dashboard/review/${page.id}`} className={styles.reviewLink}>
-                        Review
-                      </Link>
-                      <form action={deletePage.bind(null, page.id)}>
-                        <button type="submit" className={styles.removeButton}>Remove</button>
-                      </form>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </>
-        ) : (
-          <p className={styles.empty}>No pages yet. Add a URL above to get started.</p>
-        )}
+          <div className={styles.divider} />
+          <p className={styles.sidebarLabel}>Import CSV</p>
+          <CsvImport />
+        </aside>
       </main>
     </div>
   )

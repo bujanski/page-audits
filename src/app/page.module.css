@@ -31,7 +31,7 @@
 .primary,
 .secondary {
   padding: 0.625rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;

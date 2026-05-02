@@ -71,7 +71,7 @@
   background: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;

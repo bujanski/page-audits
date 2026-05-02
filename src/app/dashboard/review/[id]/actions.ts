@@ -4,10 +4,14 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 
-export async function setDecisionAndAdvance(id: string, decision: 'keep' | 'update' | 'delete') {
+export async function setDecisionAndAdvance(
+  id: string,
+  decision: 'keep' | 'update' | 'delete' | 'archive',
+  notes?: string
+) {
   const supabase = await createClient()
 
-  await supabase.from('pages').update({ decision }).eq('id', id)
+  await supabase.from('pages').update({ decision, notes: notes ?? null }).eq('id', id)
 
   const { data: next } = await supabase
     .from('pages')

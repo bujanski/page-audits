@@ -21,10 +21,16 @@ export async function login(formData: FormData) {
 }
 
 export async function signup(formData: FormData) {
+  const email = formData.get('email') as string
+
+  if (!email.toLowerCase().endsWith('@ups.com')) {
+    return { error: 'Sign-up is restricted to @ups.com email addresses.' }
+  }
+
   const supabase = await createClient()
 
   const { error } = await supabase.auth.signUp({
-    email: formData.get('email') as string,
+    email,
     password: formData.get('password') as string,
   })
 

@@ -1,7 +1,7 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
-import { setDecisionAndAdvance, clearDecision } from './actions'
+import ReviewControls from './ReviewControls'
 import styles from './review.module.css'
 
 export default async function ReviewPage({ params }: { params: Promise<{ id: string }> }) {
@@ -45,38 +45,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ id: str
           )}
         </div>
 
-        <div className={styles.controls}>
-          {page.decision && (
-            <form action={clearDecision.bind(null, id)}>
-              <button type="submit" className={styles.undoBtn}>Undo</button>
-            </form>
-          )}
-
-          <form action={setDecisionAndAdvance.bind(null, id, 'keep')}>
-            <button
-              type="submit"
-              className={`${styles.btn} ${styles.keep} ${page.decision === 'keep' ? styles.active : ''}`}
-            >
-              Keep
-            </button>
-          </form>
-          <form action={setDecisionAndAdvance.bind(null, id, 'update')}>
-            <button
-              type="submit"
-              className={`${styles.btn} ${styles.update} ${page.decision === 'update' ? styles.active : ''}`}
-            >
-              Update
-            </button>
-          </form>
-          <form action={setDecisionAndAdvance.bind(null, id, 'delete')}>
-            <button
-              type="submit"
-              className={`${styles.btn} ${styles.delete} ${page.decision === 'delete' ? styles.active : ''}`}
-            >
-              Delete
-            </button>
-          </form>
-        </div>
+        <ReviewControls id={id} currentDecision={page.decision} pending={pending} />
       </div>
     </div>
   )

@@ -29,7 +29,7 @@
   padding: 0.4rem 0.9rem;
   background: var(--accent);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
@@ -40,11 +40,26 @@
   background: var(--accent-hover);
 }
 
+.exportButton {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.exportButton:hover {
+  border-color: #555;
+  color: var(--text);
+}
+
 .logoutButton {
   padding: 0.4rem 0.9rem;
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 0.875rem;
   color: var(--text-secondary);
   cursor: pointer;
@@ -153,7 +168,7 @@
   background: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
@@ -244,6 +259,11 @@
   color: #fca5a5;
 }
 
+.archive {
+  background: #1e3a5f;
+  color: #93c5fd;
+}
+
 .pending {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -260,7 +280,7 @@
   padding: 0.3rem 0.75rem;
   background: var(--accent);
   color: #fff;
-  border-radius: 5px;
+  border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 500;
   text-decoration: none;
@@ -275,7 +295,7 @@
   padding: 0.3rem 0.75rem;
   background: transparent;
   border: 1px solid var(--border);
-  border-radius: 5px;
+  border-radius: 999px;
   font-size: 0.8rem;
   cursor: pointer;
   color: var(--text-muted);

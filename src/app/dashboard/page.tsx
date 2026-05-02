@@ -10,6 +10,7 @@ const DECISION_LABELS: Record<string, string> = {
   keep: 'Keep',
   update: 'Update',
   delete: 'Delete',
+  archive: 'Archive',
 }
 
 export default async function DashboardPage() {
@@ -35,6 +36,7 @@ export default async function DashboardPage() {
               Resume Review ({undecided.length} left)
             </Link>
           )}
+          <a href="/api/export" download className={styles.exportButton}>Export CSV</a>
           <form action={logout}>
             <button type="submit" className={styles.logoutButton}>Sign Out</button>
           </form>

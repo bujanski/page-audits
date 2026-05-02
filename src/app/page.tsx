@@ -6,7 +6,7 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Welcome</h1>
-        <p>A Next.js app with Supabase authentication.</p>
+        <p>let's delete everything</p>
         <div className={styles.ctas}>
           <Link href="/login" className={styles.primary}>Sign In</Link>
           <Link href="/signup" className={styles.secondary}>Create Account</Link>

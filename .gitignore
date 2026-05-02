@@ -3,6 +3,10 @@
 # screenshot cache
 .screenshot-cache
 
+# IDE
+.idea
+.vscode
+
 # dependencies
 /node_modules
 /.pnp

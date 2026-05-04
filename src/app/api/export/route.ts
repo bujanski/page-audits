@@ -9,7 +9,7 @@ export async function GET() {
 
   const { data: pages, error } = await supabase
     .from('pages')
-    .select('url, decision, notes')
+    .select('url, decision, notes, meta_title, meta_description, meta_keywords, decided_by, decided_at')
     .order('created_at', { ascending: true })
 
   if (error) return new NextResponse('Export failed', { status: 500 })
@@ -23,8 +23,8 @@ export async function GET() {
   }
 
   const rows = [
-    ['url', 'decision', 'notes'],
-    ...(pages ?? []).map(p => [escape(p.url), escape(p.decision), escape(p.notes)]),
+    ['url', 'decision', 'notes', 'meta_title', 'meta_description', 'meta_keywords', 'decided_by', 'decided_at'],
+    ...(pages ?? []).map(p => [escape(p.url), escape(p.decision), escape(p.notes), escape(p.meta_title), escape(p.meta_description), escape(p.meta_keywords), escape(p.decided_by), escape(p.decided_at)]),
   ]
 
   const csv = rows.map(r => r.join(',')).join('\n')

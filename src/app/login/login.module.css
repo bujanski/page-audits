@@ -61,7 +61,7 @@
 }
 
 .error {
-  color: #f87171;
+  color: #b00028;
   font-size: 0.875rem;
   margin: 0;
 }
@@ -69,7 +69,7 @@
 .button {
   padding: 0.625rem;
   background: var(--accent);
-  color: #fff;
+  color: #330000;
   border: none;
   border-radius: 999px;
   font-size: 1rem;
@@ -95,7 +95,7 @@
 }
 
 .link a {
-  color: var(--accent);
+  color: #623413;
 }
 
 .link a:hover {

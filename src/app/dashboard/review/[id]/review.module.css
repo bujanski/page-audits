@@ -3,7 +3,7 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  background: #0a0a0a;
+  background: var(--bg);
 }
 
 .screenshot {
@@ -104,7 +104,7 @@
 }
 
 .undoBtn:hover {
-  border-color: #555;
+  border-color: var(--border);
   color: var(--text);
 }
 
@@ -129,23 +129,23 @@
 }
 
 .keep {
-  background: #064e3b;
-  color: #6ee7b7;
+  background: #e0f4f3;
+  color: #00857d;
 }
 
 .update {
-  background: #78350f;
-  color: #fcd34d;
+  background: #fff3cc;
+  color: #7a5800;
 }
 
 .delete {
-  background: #7f1d1d;
-  color: #fca5a5;
+  background: #fce8ee;
+  color: #b00028;
 }
 
 .archive {
-  background: #1e3a5f;
-  color: #93c5fd;
+  background: #e5ecf8;
+  color: #14409e;
 }
 
 .modalBackdrop {
@@ -220,7 +220,7 @@
 }
 
 .modalCancel:hover:not(:disabled) {
-  border-color: #555;
+  border-color: var(--border);
   color: var(--text);
 }
 
@@ -236,16 +236,16 @@
 }
 
 .modalSkip:hover:not(:disabled) {
-  border-color: #93c5fd;
-  color: #93c5fd;
+  border-color: #14409e;
+  color: #14409e;
 }
 
 .modalSave {
   padding: 0.45rem 0.9rem;
-  background: #1e3a5f;
+  background: #ffbe00;
   border: 1px solid transparent;
   border-radius: 999px;
-  color: #93c5fd;
+  color: #330000;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;

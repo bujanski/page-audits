@@ -28,7 +28,7 @@
 .resumeButton {
   padding: 0.4rem 0.9rem;
   background: var(--accent);
-  color: #fff;
+  color: #330000;
   border-radius: 999px;
   font-size: 0.875rem;
   font-weight: 500;
@@ -51,7 +51,7 @@
 }
 
 .exportButton:hover {
-  border-color: #555;
+  border-color: var(--border);
   color: var(--text);
 }
 
@@ -67,7 +67,7 @@
 }
 
 .logoutButton:hover {
-  border-color: #555;
+  border-color: var(--border);
   color: var(--text);
 }
 
@@ -154,19 +154,19 @@
 
 .csvSuccess {
   font-size: 0.875rem;
-  color: #6ee7b7;
+  color: #4a7a28;
 }
 
 .csvError {
   font-size: 0.875rem;
-  color: #f87171;
+  color: #b00028;
 }
 
 .addButton {
   width: 100%;
   padding: 0.5rem 1.25rem;
   background: var(--accent);
-  color: #fff;
+  color: #330000;
   border: none;
   border-radius: 999px;
   font-size: 0.9rem;
@@ -220,6 +220,10 @@
   border-bottom: none;
 }
 
+.table tbody tr {
+  height: 1px;
+}
+
 .table tr:hover td {
   background: var(--surface-raised);
 }
@@ -233,7 +237,7 @@
 }
 
 .urlCell a:hover {
-  color: var(--accent);
+  color: #623413;
 }
 
 .badge {
@@ -245,23 +249,23 @@
 }
 
 .keep {
-  background: #064e3b;
-  color: #6ee7b7;
+  background: #e0f4f3;
+  color: #00857d;
 }
 
 .update {
-  background: #78350f;
-  color: #fcd34d;
+  background: #fff3cc;
+  color: #7a5800;
 }
 
 .delete {
-  background: #7f1d1d;
-  color: #fca5a5;
+  background: #fce8ee;
+  color: #b00028;
 }
 
 .archive {
-  background: #1e3a5f;
-  color: #93c5fd;
+  background: #e5ecf8;
+  color: #14409e;
 }
 
 .pending {
@@ -269,9 +273,14 @@
   color: var(--text-muted);
 }
 
+.actionsCell {
+  height: 100%;
+}
+
 .actions {
   display: flex;
   align-items: center;
+  height: 100%;
   gap: 0.5rem;
   white-space: nowrap;
 }
@@ -279,7 +288,7 @@
 .reviewLink {
   padding: 0.3rem 0.75rem;
   background: var(--accent);
-  color: #fff;
+  color: #330000;
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 500;
@@ -303,8 +312,8 @@
 }
 
 .removeButton:hover {
-  border-color: #f87171;
-  color: #f87171;
+  border-color: #b00028;
+  color: #b00028;
 }
 
 .empty {

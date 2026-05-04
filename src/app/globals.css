@@ -1,19 +1,19 @@
 :root {
-  --bg: #0f0f0f;
-  --surface: #1a1a1a;
-  --surface-raised: #222;
-  --border: #2a2a2a;
-  --border-subtle: #222;
-  --text: #e2e2e2;
-  --text-secondary: #888;
-  --text-muted: #555;
-  --accent: #4f8ef7;
-  --accent-hover: #3a7ae0;
+  --bg: #ffffff;
+  --surface: #faf7f5;
+  --surface-raised: #f0ebe6;
+  --border: #d4c5bc;
+  --border-subtle: #e8e0dc;
+  --text: #330000;
+  --text-secondary: #58595b;
+  --text-muted: #8c8585;
+  --accent: #ffbe00;
+  --accent-hover: #e6aa00;
 }
 
 html {
   height: 100%;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html,

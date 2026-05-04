@@ -40,7 +40,7 @@
 
 .primary {
   background: var(--accent);
-  color: #fff;
+  color: #330000;
 }
 
 .primary:hover {
@@ -54,5 +54,5 @@
 }
 
 .secondary:hover {
-  background: #2a2a2a;
+  background: var(--surface-raised);
 }

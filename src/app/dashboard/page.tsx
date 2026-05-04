@@ -75,13 +75,15 @@ export default async function DashboardPage() {
                           <span className={styles.pending}>Pending</span>
                         )}
                       </td>
-                      <td className={styles.actions}>
-                        <Link href={`/dashboard/review/${page.id}`} className={styles.reviewLink}>
-                          Review
-                        </Link>
-                        <form action={deletePage.bind(null, page.id)}>
-                          <button type="submit" className={styles.removeButton}>Remove</button>
-                        </form>
+                      <td className={styles.actionsCell}>
+                        <div className={styles.actions}>
+                          <Link href={`/dashboard/review/${page.id}`} className={styles.reviewLink}>
+                            Review
+                          </Link>
+                          <form action={deletePage.bind(null, page.id)}>
+                            <button type="submit" className={styles.removeButton}>Remove</button>
+                          </form>
+                        </div>
                       </td>
                     </tr>
                   ))}

@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import { logout } from '@/app/auth/actions'
-import { addPage, deletePage } from '@/app/pages/actions'
+import { addPage, deletePage, resetDecision } from '@/app/pages/actions'
 import CsvImport from './CsvImport'
 import styles from './dashboard.module.css'
 
@@ -68,8 +68,13 @@ export default async function DashboardPage() {
                       </td>
                       <td>
                         {page.decision ? (
-                          <span className={`${styles.badge} ${styles[page.decision]}`}>
-                            {DECISION_LABELS[page.decision]}
+                          <span className={styles.decisionCell}>
+                            <span className={`${styles.badge} ${styles[page.decision]}`}>
+                              {DECISION_LABELS[page.decision]}
+                            </span>
+                            <form action={resetDecision.bind(null, page.id)}>
+                              <button type="submit" className={styles.resetButton} title="Reset to pending">✕</button>
+                            </form>
                           </span>
                         ) : (
                           <span className={styles.pending}>Pending</span>

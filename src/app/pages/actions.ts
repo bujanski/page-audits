@@ -45,6 +45,13 @@ export async function importCSV(formData: FormData) {
   return { count: urls.length, error: null }
 }
 
+export async function resetDecision(id: string) {
+  const supabase = await createClient()
+  await supabase.from('pages').update({ decision: null }).eq('id', id)
+  revalidatePath('/dashboard')
+  revalidatePath(`/dashboard/review/${id}`)
+}
+
 export async function deletePage(id: string) {
   const supabase = await createClient()
   await supabase.from('pages').delete().eq('id', id)
